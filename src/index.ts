@@ -1,6 +1,9 @@
 import { CSSInterpolation, css } from "@emotion/css"
-import { createElement } from "react"
-import { ComponentCb, convertChildrenProps } from "react-callable-components"
+import {
+  ComponentCb,
+  convertChildrenProps,
+  createElement,
+} from "react-callable-components"
 
 /**
  * Type definition for the arguments accepted by StyledComponent.
