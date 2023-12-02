@@ -5,8 +5,9 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "CommonJS",
-    "target": "ES2020",
+    "moduleResolution": "Node",
+    "module": "ESNext",
+    "target": "ESNext",
     "outDir": "dist"
   },
   "include": [
