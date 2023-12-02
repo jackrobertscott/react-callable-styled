@@ -1,6 +1,6 @@
 import { CSSInterpolation, css } from "@emotion/css"
 import { createElement } from "react"
-import { ComponentCb } from "react-callable-components"
+import { ComponentCb, convertChildrenProps } from "react-callable-components"
 
 /**
  * Type definition for the arguments accepted by StyledComponent.
@@ -31,17 +31,18 @@ export const styled = new Proxy<StyledProxy>({} as any, {
   /**
    * The get trap for the proxy. It is invoked when accessing a property on the styled object.
    * @param _ - The target object of the proxy. Not used in this implementation.
-   * @param property - The name of the HTML element to create a styled component for.
+   * @param tag - The name of the HTML element to create a styled component for.
    * @returns A function that creates a styled component for the specified HTML element.
    */
-  get<T extends keyof HTMLElementTagNameMap>(_: any, property: T) {
+  get<T extends keyof HTMLElementTagNameMap>(_: any, tag: T) {
     const cb: StyledProxy[T] = (...args) => {
       const elementClass = css(args)
       function component(props: any) {
-        let cn = props.className
+        const _props = convertChildrenProps(props)
+        let cn = _props.className
         cn = Array.isArray(cn) ? cn : [cn]
-        props.className = [...cn, elementClass]
-        return createElement(property, props)
+        _props.className = [...cn, elementClass]
+        return createElement(tag, _props)
       }
       component.className = elementClass
       component.dotClassName = "." + elementClass
