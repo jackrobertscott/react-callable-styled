@@ -39,7 +39,7 @@ export const styled = new Proxy<StyledProxy>({} as any, {
    */
   get<T extends keyof HTMLElementTagNameMap>(_: any, tag: T) {
     const cb: StyledProxy[T] = (...args) => {
-      const elementClass = css(args)
+      const elementClass = css(...args)
       function component(props: any) {
         const _props = convertChildrenProps(props)
         let cn = _props.className
