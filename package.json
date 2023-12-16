@@ -2,7 +2,7 @@
   "name": "react-callable-styled",
   "description": "React callable components with CSS styling.",
   "author": "Jack Scott",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@emotion/css": "^11.11.2",
-    "react-callable-components": "^0.7.2"
+    "react-callable-components": "^0.8.2"
   },
   "peerDependencies": {
     "react": "^18.2.0"

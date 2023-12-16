@@ -1,6 +1,6 @@
 import { CSSInterpolation, css } from "@emotion/css"
 import {
-  ComponentCb,
+  FCBetter,
   convertChildrenProps,
   createElement,
 } from "react-callable-components"
@@ -22,7 +22,7 @@ export type StyledComponentArgs =
 export type StyledProxy = {
   [K in keyof HTMLElementTagNameMap]: (
     ...args: StyledComponentArgs
-  ) => ComponentCb<K> & { className: string; dotClassName: string }
+  ) => FCBetter<K> & { className: string; dotClassName: string }
 }
 
 /**
