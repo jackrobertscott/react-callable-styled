@@ -1,4 +1,5 @@
 import { CSSInterpolation, css } from "@emotion/css"
+import { FC } from "react"
 import {
   FCBetter,
   convertChildrenProps,
@@ -22,7 +23,7 @@ export type StyledComponentArgs =
 export type StyledProxy = {
   [K in keyof HTMLElementTagNameMap]: (
     ...args: StyledComponentArgs
-  ) => FCBetter<K> & { className: string; dotClassName: string }
+  ) => FCBetter<FC<K>> & { className: string; dotClassName: string }
 }
 
 /**
